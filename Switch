@@ -1,7 +1,3 @@
-
-
-
-
 import math
 
 def Distance(x1, y1, x2, y2):
@@ -54,60 +50,67 @@ class Circle(Shape):
             return math.pi*(self.radius**2)
             
 def calculator_switch():
-    calculation = input("Enter which calculation you want to perform. \n \
-    A - Square\n \
-    B - Triangle\n \
-    C - Circle\n \
-    D - Distance\n \
-    E - Midpoint\n")
-    
-    match calculation:
-        case "A":
-            print("You entered A for Square.")
-            rect = Rectangle(4, 9)
-            print("Rectangle area:", rect.area())
-            print("Rectangle perimeter:", rect.perimeter())
-        case "B":
-            print("You entered B for Triangle.")
-            tri = Triangle(3, 4, 3, 4, 5) 
-            print("Triangle area:", tri.area())
-            print("Triangle perimeter:", tri.perimeter())
-        case "C":
-            print("You entered C for Circle.")
-            circ = Circle(9)
-            print("Circle circumference: ", circ.perimeter())
-            print("Circle area: ", circ.area())
-        case "D":
-            print("You entered D for Distance.")
-            print(Distance(0, 0, 1, 1))
-        case "E":
-            print("You entered E for Midpoint.")
-            print(Midpoint(0, 0, 1, 1))
-        case _:
-            print("Invalid Entry")
+    while True:
+        calculation = input("Enter which calculation you want to perform. \n \
+        A - Square\n \
+        B - Triangle\n \
+        C - Circle\n \
+        D - Distance\n \
+        E - Midpoint \n \
+        STOP - To stop the program.\n")
+        match calculation:
+        
+            case "A":
+                print("You entered A for Square.")
+                side1 = input("Enter a side length for your square:\n")
+                side1 = int(side1)
+                side2 = input("Enter another side length of your square:\n")
+                side2 = int(side2)
+                rect = Rectangle(side1, side2)
+                print("Rectangle: Area", rect.area())
+                print("Rectanlge Perimeter:", rect.perimeter())
+            
+            case "B":
+                print("You entered B for Triangle.")
+                side1 = input("Enter a side length, which is the base, for your Triangle:\n")
+                side1 = int(side1)
+                side2 = input("Enter another side length, which is the height, for your Triangle:\n")
+                side2 = int(side2)
+                side3 = input("Enter another side lenght for your Triangle:\n")
+                side3 = int(side3)
+                tri = Triangle(side1, side2, side1, side2, side3)
+                print("Triangle area:", tri.area())
+                print("Triangle perimeter:", tri.perimeter())
+        
+            case "C":
+                print("You entered C for Circle.")
+                radius = input("Enter the radius:\n")
+                radius = int(radius)
+                circ = Circle(radius)
+                print("Circle circumference: ", circ.perimeter())
+                print("Circle area: ", circ.area())
+            
+            case "D":
+                print("You entered D for Distance.")
+                x1 = int(input("Enter the x value 1st Cord"))
+                y1 = int(input("Enter the y value 1st Cord"))
+                x2 = int(input("Enter the x value 2nd Cord"))
+                y2 = int(input("Enter the x value 2nd Cord"))
+                print("The distance is: ", Distance(x1, y1, x2, y2))
+            case "E":
+                print("You entered E for Midpoint.")
+                x1 = int(input("Enter the x value 1st Cord"))
+                y1 = int(input("Enter the y value 1st Cord"))
+                x2 = int(input("Enter the x value 2nd Cord"))
+                y2 = int(input("Enter the x value 2nd Cord"))
+                print("The midpoint is: ", Midpoint(x1, y1, x2, y2))
+            case "STOP":
+                print("Stopping the program.")
+                break
+            case _:
+                print("Invalid Entry")
+                break
         
 if __name__ == "__main__":
     calculator_switch()
-    #rect = Rectangle(4, 9)
-    #print("Rectangle area:", rect.area())
-    #print("Rectangle perimeter:", rect.perimeter())
-    #tri = Triangle(3, 4, 3, 4, 5) 
-    #print("Triangle area:", tri.area())
-    #print("Triangle perimeter:", tri.perimeter())
-    #circ = Circle(9)
-    #print("Circle circumference: ", circ.perimeter())
-    #print("Circle area: ", circ.area())
-    #print(Distance(0, 0, 1, 1))
-    #print(Midpoint(0, 0, 1, 1))
     
-    #print("Input x1:")
-    #x1 = input()
-    #print("Input y1:")
-    #y1 = input()
-    #print("Input x2:")
-    #x2 = input()
-    #print("Input y2:")
-    #y2 = input()
-    
-            
-            
